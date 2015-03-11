@@ -211,7 +211,7 @@ bool HttpSkipResponseCommand::processResponse()
                            error_code::HTTP_AUTH_FAILED);
       }
     } else if(statusCode == 404) {
-      throw DL_ABORT_EX2(MSG_RESOURCE_NOT_FOUND,
+      throw DL_RETRY_EX2(MSG_RESOURCE_NOT_FOUND,
                          error_code::RESOURCE_NOT_FOUND);
     } else if(statusCode == 503) {
       // Only retry if pretry-wait > 0. Hammering 'busy' server is not
